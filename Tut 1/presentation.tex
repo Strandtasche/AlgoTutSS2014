@@ -1,0 +1,347 @@
+%% LaTeX-Beamer template for KIT design
+%% by Erik Burger, Christian Hammer
+%% title picture by Klaus Krogmann
+%%
+%% version 2.1
+%%
+%% mostly compatible to KIT corporate design v2.0
+%% http://intranet.kit.edu/gestaltungsrichtlinien.php
+%%
+%% Problems, bugs and comments to
+%% burger@kit.edu
+
+\documentclass[18pt]{beamer}
+\usepackage[utf8]{inputenc}
+%% SLIDE FORMAT
+
+% use 'beamerthemekit' for standard 4:3 ratio
+% for widescreen slides (16:9), use 'beamerthemekitwide'
+
+\usepackage{templates/beamerthemekit}
+% \usepackage{templates/beamerthemekitwide}
+
+%% TITLE PICTURE
+
+% if a custom picture is to be used on the title page, copy it into the 'logos'
+% directory, in the line below, replace 'mypicture' with the 
+% filename (without extension) and uncomment the following line
+% (picture proportions: 63 : 20 for standard, 169 : 40 for wide
+% *.eps format if you use latex+dvips+ps2pdf, 
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+%\titleimage{mypicture}
+
+%% TITLE LOGO
+
+% for a custom logo on the front page, copy your file into the 'logos'
+% directory, insert the filename in the line below and uncomment it
+
+%\titlelogo{mylogo}
+
+% (*.eps format if you use latex+dvips+ps2pdf,
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+%% TikZ INTEGRATION
+
+% use these packages for PCM symbols and UML classes
+% \usepackage{templates/tikzkit}
+% \usepackage{templates/tikzuml}
+
+% the presentation starts here
+
+\title[Algo Tutorium Nr.1]{Algorithmen I - Sommersemester 2014}
+\subtitle{Tutorium Nr. 1}
+\author{Tobias Hornberger}
+
+\institute{Institut für Theoretische Informatik}
+
+\begin{document}
+
+% change the following line to "ngerman" for German style date and logos
+\selectlanguage{ngerman}
+
+%title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+%table of contents
+%~ \begin{frame}[allowframebreaks]{Übersicht}
+%~ \tableofcontents
+%~ \end{frame}
+
+\section{Einführung}
+	\subsection{Vorstellung}
+	\begin{frame}{Der Tutor}
+		Tobias Hornberger
+		\begin{itemize}
+			\item 4. Semester Informatik
+			\item Algorithmen I vor 2 Semestern gehört
+			\item erstes Mal Tutor
+		\end{itemize}
+		Vorschläge/Anmerkungen/Feedback ist also sehr erwünscht
+	\end{frame}
+
+	\subsection{Kontakt}
+	\begin{frame}{Kontakt}
+		
+		\begin{itemize}
+			\item Email: \texttt{saibot1207@googlemail.com}
+			\item Github: *TODO*
+			\item Bei Fragen: Antwort an alle
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Namen}
+		Vorstellungsrunde		
+	\end{frame}
+
+	\subsection{Organisatorisches}
+
+	\begin{frame}{Organisation und Übungsbetrieb}
+		\begin{itemize}
+			\item Das Tutorium ist nicht dazu gedacht Übung/Vorlesung zu ersetzen, sondern sie zu ergänzen.
+			\item Der Besuch wird empfohlen
+			\item Keine Frontalveranstaltung
+			\begin{itemize}
+				\item Wenn Fragen auftauchen: einfach Fragen
+				\item Es gibt keine dummen Fragen
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Organisation und Übungsbetrieb}
+		Speziell für dieses Semester:
+		\begin{itemize}
+			\item Viele Feiertage fallen auf Donnerstage
+			\item in diesen Wochen bitte andere Tutorien besuchen 
+		\end{itemize}		
+	\end{frame}
+
+	\begin{frame}{Homepages}
+		\begin{itemize}
+			\item Vorlesungshomepage: \texttt{http://algo2.iti.kit.edu/AlgorithmenI2014.php}
+			\begin{itemize}
+				\item Interessante Organisatorische Details
+				\item Vorlesungsfolien
+				\item Die Übungsblätter
+				\item Prof. Sanders Buch
+				\item Literaturliste
+			\end{itemize}
+			\item Meine Folien: \texttt{https://github.com/Strandtasche/AlgoTutSS2014}
+			
+		\end{itemize}		
+	\end{frame}
+
+	\begin{frame}{Übungsblätter}
+		Das meiste wurde schon in der vorlesung gesagt:
+		\begin{itemize}
+			\item 9 Tage Bearbeitungszeit: von Mittwoch bis Freitag der nächsten Woche
+			\item Abgabe 12:45 Uhr im Kasten hier vor dem Raum (-118)
+			\item 2er-Teams sind erlaubt
+			\item Teamwechsel im Semester sind nicht vorgesehen, können aber in Sonderfälle mit Rücksprache durchgeführt werden
+			\item Wichtig Wichtig: Tutoriumsnummer rechts oben groß auf die Abgabe!
+			\item Kein Verpflichtender Übungsschein sondern Klausurbonus von 1/2/3 Punkten
+			\item Zum ersten Mal dieses Jahr: Programmieraufgaben
+			\begin{itemize}
+				\item in Java
+				\item keine Klassenstrukturen sondern tatsächlich nur der Algorithmus
+			\end{itemize}
+		\end{itemize}		
+	\end{frame}
+
+	\begin{frame}{Beispiel}
+		\begin{figure}
+				$(\lambda x.x x)(\lambda y.y) z$ 
+				$\;\Leftrightarrow\;$
+				$\vcenter{\hbox{\includegraphics[width=4cm,type=pdf,ext=.pdf,read=.pdf]{logos/(Ax.xx)(Ay.y)z}}}$
+		\end{figure}
+		\vspace{-1cm}
+		\pause
+		\begin{figure}
+				$(\lambda y.y)(\lambda y.y) z$ 
+				$\;\Leftrightarrow\;$
+				\visible<2->{$\vcenter{\hbox{\includegraphics[width=4cm,type=pdf,ext=.pdf,read=.pdf]{logos/(Ay.y)(Ay.y)z}}}$}
+		\end{figure}
+		\vspace{-1cm}
+		\pause
+		\begin{figure}
+				$(\lambda y.y) z$ 
+				$\;\Leftrightarrow\;$
+				\visible<3->{$\vcenter{\hbox{\includegraphics[width=3.5cm,type=pdf,ext=.pdf,read=.pdf]{logos/(Ay.y)z}}}$}
+		\end{figure}
+		\vspace{-1cm}
+		\pause
+		\begin{figure}
+				$z$ 
+				$\;\Leftrightarrow\;$
+				\visible<4>{$\vcenter{\hbox{\includegraphics[width=2cm,type=pdf,ext=.pdf,read=.pdf]{logos/z}}}$}
+		\end{figure}
+		\vspace{-1cm}
+		\vfill
+		\pause
+		$\rightarrow$ Kindgerecht, aber ohne Zielstellung langweilig
+	\end{frame}
+
+\section{Produktvorstellung}
+	\subsection{Croggle, die App}
+	\begin{frame}{Croggle in Aktion}
+		\center{Wie löst Croggle dieses Problem?}
+	\end{frame}
+	
+	\subsection{Leveltypen}
+	\begin{frame}[<+->]{Spielmechanik in Croggle}
+		Drei verschiedene Spielmodi:
+		\begin{itemize}
+			\item Multiple Choice
+			\item Vorgegebene Lücken füllen
+			\item Terme ergänzen
+		\end{itemize}
+	\end{frame}
+
+	\subsection{Zusatzfunktionen}
+	\begin{frame}[<+->]{Weitere Features}
+		\begin{itemize}
+			\item Mehrere Benutzer
+			\item Statistiken
+			\item Achievements
+			\item Farbenblindenmodus
+			\item Mehrsprachigkeit
+		\end{itemize}
+		und vieles mehr!
+	\end{frame}
+
+\section{Umsetzung}
+	\begin{frame}{Realisierung}
+		\center{Wie haben wir das geschafft?}
+	\end{frame}
+
+	\subsection{Planung \& Entwurf}
+	\begin{frame}[<+->]{Tools}
+		\begin{block}{Planung}
+			\begin{itemize}
+				\item LaTeX für alle Dokumente
+				\item Gimp für erste Screen Mockups
+				\item ArgoUML für das UML der Planungsphase
+			\end{itemize}
+		\end{block}
+		\begin{block}{Entwurf}
+			\begin{itemize}
+				\item UMLet für Sequenzdiagramme der Entwurfsphase
+				\item Nichts drückt den Inhalt eines Softwareprojekts besser aus als sein Quellcode \\
+				$\rightarrow$ Java Quellcode bereits für den Entwurf
+				\item KIT hauseigenes TexDoclet zur Generierung der Klassendokumentation aus Java Code
+				\item UMLGraph zur Erstellung von Klassendiagrammen aus Java Quellcode
+			\end{itemize}
+		\end{block}
+	\end{frame}
+
+	\subsection{Implementierung \& Test}
+	\begin{frame}[<+->]{Tools}
+		\begin{block}{Implementierung}
+			\begin{itemize}
+				\item Eclipse IDE
+				\item Android SDK rev19
+				\item libGdx Framework
+				%~ \item Nuzung von libGdx' TexturePacker
+				\item git zur Revisionskontrolle
+				\item GitHub: \textcolor{blue}{\href{http://github.com/TeamCroggle}{github.com/TeamCroggle}} \\
+					$\rightarrow$ Open Source
+			\end{itemize}
+		\end{block}
+		\begin{block}{Testphase}
+			\begin{itemize}
+				\item jUnit 3 (Version 4 von Android nicht unterstützt)
+				\item Emma, einschließlich Eclipse Integration EclEmma
+				\item MonkeyRunner und Monkey Tool aus dem Android SDK
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}[<+->]{Nebenprodukt Desktopversion}
+		\begin{itemize}
+			\item Bereits in der Demo gezeigt
+			\item Enstanden zwischen Implementierung und Test
+			\item Durch Framework einfach gemacht
+			\item Teilweise schon während Implementierung auf Portabilität geachtet
+			\item Hauptarbeit SQLite
+		\end{itemize}
+	\end{frame}
+
+	\subsection{Problemstellungen}
+	\begin{frame}[<+->]{Herausforderungen}
+		Die größten Hürden, die es zu bewältigen galt: 
+		\begin{itemize}
+			\item Einarbeitung ins $\lambda$-Kalkül
+			\item Einarbeitung Android bzw. libGdx
+			\item Darstellung der Alligatoren getrennt nach MVC
+			\item Eigenes auf JSON aufbauendes Format für Level und Tutorials
+			\item Speicherung der Nutzerdaten in Sqlite
+			\item Und natürlich der ganze Rest der App
+			%~ \item Eigene Abstraktion der Android Lokalisierungsdienste für Plattformunabhängigkeit
+		\end{itemize}
+	\end{frame}
+
+	%~ \begin{frame}{Probleme}
+		%~ \begin{itemize}
+			%~ \item Verschiedene Entwicklungsumbebungen und Softwareversionen
+			%~ \pause
+			%~ \item Bug in libGdx $\rightarrow$ Bug Report
+			%~ \pause
+			%~ \item Keine WYSIWYG Editoren für die GUI
+		%~ \end{itemize}
+	%~ \end{frame}
+
+\section{Rezeption \& Fazit}
+	\subsection{Meinungen von Außerhalb}
+	\begin{frame}[<+->]{Meinungen von Außerhalb}
+		Das meinen die Tester:
+		\begin{itemize}
+			\item Tolle Grafiken
+			\item Hier und da müssten zusätzliche Erklärungen hin
+			\item Wirkt sehr professionell
+			\item Analogie Alligator $\Leftrightarrow$ Lambdakalkül hinkt/verwirrt
+		\end{itemize}
+	\end{frame}
+
+	\subsection{Eigene Meinung}
+	\begin{frame}[<+->]{Unsere Meinung}
+		Das meinen wir:
+		\begin{itemize}
+			\item Tolles Projekt: Viele Freiheiten ohne aber überhaupt erst mal ein Konzept finden zu müssen
+			\item Sehr viel gelernt, sowohl technisch wie auch bzgl. Teamarbeit
+			\item Mehr Wagemut zum Abändern der Spielidee, damit es logischer wird, wäre gut gewesen
+			\item Gute Balance gefunden zwischen Menge an Features und insgesamter Ausgereiftheit
+			\item Ein bisschen zu viel vorgenommen $\rightarrow$ wenig Freizeit
+		\end{itemize}
+	\end{frame}
+
+	%~ \subsection{Lehren aus dem Projekt}
+	%~ \begin{frame}{Was wir gelernt haben}
+	%~ \end{frame}
+
+\section{Ende}
+	\begin{frame}{Ende}
+		\center{Vielen Dank für Eure Aufmerksamkeit}
+	\end{frame}
+
+	%~ \subsection{Amüsantes}
+	%~ \begin{frame}{Bloopers}
+		%~ \begin{itemize}
+			%~ \item Für den Entwurf wurde das KIT TexDoclet von uns geforkt und so stark modifiziert, dass mir vorgeschlagen wurde, Maintainer zu werden
+			%~ \item Inhaltsverzeichnis ohne latexmk kaputt
+			%~ \item Unübersichtliches Klassendiagramm dank Autogenerierung
+			%~ \item Umstellung Repository kurz vor der Testphase
+		%~ \end{itemize}
+	%~ \end{frame}
+%~ 
+	%~ \begin{frame}{Miscellaneous}
+	%~ Für weitere Stichpunkte
+		%~ \begin{itemize}
+			%~ \item Statistiken und genaue Zahlen über weiterverwendbaren Code
+			%~ \item Statistiken hier einfügen
+			%~ \item Zielsetzung: Altersgruppe, Geräteanforderungen, Langzeitmotivation...
+		%~ \end{itemize}
+	%~ \end{frame}
+
+\end{document}
