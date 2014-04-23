@@ -13,6 +13,9 @@
 \documentclass[18pt]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{amsfonts} 
+\usepackage{mathtools} 
 %% SLIDE FORMAT
 
 % use 'beamerthemekit' for standard 4:3 ratio
@@ -47,6 +50,29 @@
 % use these packages for PCM symbols and UML classes
 % \usepackage{templates/tikzkit}
 % \usepackage{templates/tikzuml}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
 
 % the presentation starts here
 
@@ -81,16 +107,15 @@
 			\item erstes Mal Tutor
 		\end{itemize}
 		Vorschläge/Anmerkungen/Feedback ist also sehr erwünscht
-	\end{frame}
+	\end{frame
 
 	\subsection{Kontakt}
 	\begin{frame}{Kontakt}
-		
 		\begin{itemize}
 			\item Email: \texttt{saibot1207@googlemail.com}
-			\item Github: *TODO*
+			\item Github: \texttt{https://github.com/Strandtasche}
 			\item Bei Fragen per Email: Antwort an Alle
-			Email mit Betreff "Algo1Tut" an mich schicken.
+			Email mit Betreff "`Algo1Tut"' an mich schicken.
 		\end{itemize}
 	\end{frame}
 	
@@ -156,8 +181,87 @@
 	\end{frame}
 
 \section{Pseudocode und Schleifeninvarianten}
-	\begin{frame} {Pseudocode}
-		
+	\subsection{Pseudocode}
+	\begin{frame} {Pseudocode für FindMaximum} 
+		Beispielcode:\\
+		a ist ein Array von $\mathbb{N}$
+		\includegraphics[align=center, scale=0.25]{pics/pseudocode01.png}		
 	\end{frame} 
+
+\section{Binary Search}
+	\begin{frame}{Binäre Suche}
+		Pseudocode: \\
+		\includegraphics[align=center, scale=0.2]{pics/pseudocode03.png}			
+	\end{frame}
+	\begin{frame}{Binäre Suche: Laufzeiten}
+		test
+	\end{frame}	
+
+\section{O-Kalkül}
+	\subsection{Einführung}
+	\begin{frame}{O-Kalkül}
+		Bekannt aus GBI: \\
+		zum Untersuchen von Laufzeitverhalten bei Eingaben verschiedener Größen
+		\begin{itemize}
+			\item \textbf{Best Case:} Cool zu wissen, aber meistens irrelevant
+			\item \textbf{Average Case:} Sehr interessant, aber unhandlich/schwer zu berechnen
+			\item \textbf{Worst Case:} Hiermit beschäftigen wir uns
+		\end{itemize}
+		\begin{block}{Bezug}
+			Begriffe beziehen sich auf deterministische Algorithmen \\mit fester Eingabegröße.
+		\end{block}
+	\end{frame}
+
+
+	\begin{frame}{Formale Definition}
+				
+		\begin{block} {Formeln}	
+				\item $\mathcal{O}(f(n)) = $ \{ g(n) : \exists c >  0 : \exists  n _{0} \in \mathbb{N} _{+} : \all n \geq n _{0} : g(n) \leq c * f(n) \} \\
+				\item \Omega(f(n)) = \{ g(n) : \exists c >  0 : \exists  n _{0} \in \mathbb{N} _{+} : \all n \geq n _{0} : g(n) \leq c * f(n) \}\\
+
+				\item \Theta(f(n)) = O(f(n))   \cap   \Omega(f(n))
+			
+				\item $o(f(n)) = $ \{ g(n) : \lim _{n \to \infty} \frac{g(n)}{f(n)} = 0 \}
+
+				\item $\omega(f(n)) = $ \{ g(n) : \lim _{n \to \infty} \frac{g(n)}{f(n)} = \infty \}
+
+							
+		\end{block}	
+
+	\end{frame}
+	\subsection{O-Kalkül Aufgaben}
+
+	\begin{frame}{Aufgaben}
+		\begin{itemize}
+			\item $ 14 n ^{3} + 3 n ^{2}  + 7n + 15$
+			\item $ 8 n + 7 $
+			\item $ 15 n ^{2} + 3 $
+			\item $ 1500 $
+			\item $ -7 $
+			\item $ n! $
+			\item $ n ^{n} $
+			\item $ \log{n} $
+			\item $ \frac{1}{2} n ^{2} $
+			\item $ n + n * \log{n} $
+			\item $ 4 n + 15 n $	
+		\end{itemize}	
+	\end{frame}
+
+	\begin{frame}{Beweisaufgabe}
+		\begin{exampleblock}{Zeigen Sie, dass}
+			\begin{itemize}
+				\item $ f(n) =  n! $ in $ \mathcal{O} ( n ^{n}) $ ist
+			\end{itemize}
+		\end{exampleblock}
+	\end{frame}
+
+
+	\begin{frame}{Bonusaufgabe}
+		\includegraphics[align=center, scale=0.25]{pics/pseudocode02.png}
+		
+
+
+		Laufzeit?	
+	\end{frame}
 
 \end{document}
