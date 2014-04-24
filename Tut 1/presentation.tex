@@ -213,16 +213,18 @@
 	\begin{frame}{Formale Definition}
 				
 		\begin{block} {Formeln}	
-				\item $\mathcal{O}(f(n)) = $ \{ g(n) : \exists c >  0 : \exists  n _{0} \in \mathbb{N} _{+} : \all n \geq n _{0} : g(n) \leq c * f(n) \} \\
-				\item \Omega(f(n)) = \{ g(n) : \exists c >  0 : \exists  n _{0} \in \mathbb{N} _{+} : \all n \geq n _{0} : g(n) \leq c * f(n) \}\\
+			\begin{itemize}
+				\item{$\mathcal{O}(f(n)) = $ \{ g(n) : \exists c >  0 : \exists  n _{0} \in \mathbb{N} _{+} : \all n \geq n _{0} : g(n) \leq c * f(n) \}}
 
-				\item \Theta(f(n)) = O(f(n))   \cap   \Omega(f(n))
+				\item{\Omega(f(n)) = \{ g(n) : \exists c >  0 : \exists  n _{0} \in \mathbb{N} _{+} : \all n \geq n _{0} : g(n) \leq c * f(n) \}}
+
+				\item{\Theta(f(n)) = O(f(n))   \cap   \Omega(f(n))}
 			
-				\item $o(f(n)) = $ \{ g(n) : \lim _{n \to \infty} \frac{g(n)}{f(n)} = 0 \}
+				\item{$o(f(n)) = $ \{ g(n) : \lim _{n \to \infty} \frac{g(n)}{f(n)} = 0 \}}
 
-				\item $\omega(f(n)) = $ \{ g(n) : \lim _{n \to \infty} \frac{g(n)}{f(n)} = \infty \}
+				\item{$\omega(f(n)) = $ \{ g(n) : \lim _{n \to \infty} \frac{g(n)}{f(n)} = \infty \}}
 
-							
+			\end{itemize}			
 		\end{block}	
 
 	\end{frame}
@@ -267,11 +269,15 @@
 
 
 	\begin{frame}{Bonusaufgabe}
+
+		A ist ein Array aus $\mathbb{N}$, x ist ein int \\
 		\includegraphics[align=center, scale=0.25]{pics/pseudocode02.png}
 		
 
 
-		Laufzeit?	
+		Was tut es? \\
+		Laufzeit? \\
+		Schleifeninvariante?	
 	\end{frame}
 
 	\begin{frame}{Bis zum nächsten Mal}
