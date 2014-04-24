@@ -227,6 +227,17 @@
 
 	\end{frame}
 
+	\begin{frame}{Logarithmen mit verschiednen Basen}
+		Bemerke: \\
+		log(n) ist immer ohne Basis angegeben. Wieso?
+
+		\begin{block} {Basisumrechnung}
+			$ \log _{b} (n) = \frac{\log _{d} (n)}{\log _{d}(d)} $
+		\end{block}
+
+		\centerline{$\Rightarrow$ Ist das gleiche wie $ \frac{1}{\log _{d}(d)} * \log _{d} n $}
+	\end{frame}
+
 	\subsection{O-Kalkül Aufgaben}
 
 	\begin{frame}{Aufgaben}
@@ -248,7 +259,8 @@
 	\begin{frame}{Beweisaufgabe}
 		\begin{exampleblock}{Zeigen Sie, dass}
 			\begin{itemize}
-				\item $ f(n) =  n! $ in $ \mathcal{O} ( n ^{n}) $ ist
+				\item $ \mathcal{O}( \log{n}) = \mathcal{O}( \log{n ^{2}} ) $
+				\item $ f(n) =  n! $ \in $ \mathcal{O} ( n ^{n}) $ ist
 			\end{itemize}
 		\end{exampleblock}
 	\end{frame}
