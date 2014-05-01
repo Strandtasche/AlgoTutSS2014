@@ -1,0 +1,190 @@
+%% LaTeX-Beamer template for KIT design
+%% by Erik Burger, Christian Hammer
+%% title picture by Klaus Krogmann
+%%
+%% version 2.1
+%%
+%% mostly compatible to KIT corporate design v2.0
+%% http://intranet.kit.edu/gestaltungsrichtlinien.php
+%%
+%% Problems, bugs and comments to
+%% burger@kit.edu
+
+\documentclass[18pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{amsfonts} 
+\usepackage{mathtools} 
+%% SLIDE FORMAT
+
+% use 'beamerthemekit' for standard 4:3 ratio
+% for widescreen slides (16:9), use 'beamerthemekitwide'
+
+\usepackage{templates/beamerthemekit}
+% \usepackage{templates/beamerthemekitwide}
+
+%% TITLE PICTURE
+
+% if a custom picture is to be used on the title page, copy it into the 'logos'
+% directory, in the line below, replace 'mypicture' with the 
+% filename (without extension) and uncomment the following line
+% (picture proportions: 63 : 20 for standard, 169 : 40 for wide
+% *.eps format if you use latex+dvips+ps2pdf, 
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+%\TitleImage[width=\titleimagewd]{pics/title}
+%\titleimage{}
+
+%% TITLE LOGO
+
+% for a custom logo on the front page, copy your file into the 'logos'
+% directory, insert the filename in the line below and uncomment it
+
+%\titlelogo{mylogo}
+
+% (*.eps format if you use latex+dvips+ps2pdf,
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+%% TikZ INTEGRATION
+
+% use these packages for PCM symbols and UML classes
+% \usepackage{templates/tikzkit}
+% \usepackage{templates/tikzuml}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+
+\setbeamertemplate{enumerate items}[circle]
+% the presentation starts here
+
+\title[Algo Tutorium Nr.2]{Algorithmen I - Sommersemester 2014}
+\subtitle{Tutorium Nr. 2}
+\author{Tobias Hornberger}
+
+\institute{Institut für Theoretische Informatik}
+
+\begin{document}
+
+% change the following line to "ngerman" for German style date and logos
+\selectlanguage{ngerman}
+
+%title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+%table of contents
+%~ \begin{frame}[allowframebreaks]{Übersicht}
+%~ \tableofcontents
+%~ \end{frame}
+
+\section{Organisatorisches}
+\subsection{Übungsblätter}
+	\begin{frame}
+		\begin{center}
+			\huge{Rückgabe der Übungsblätter} \\
+			\parskip 36pt
+			\normalsize{$\rightarrow$ Bei Rückfragen bitte am Ende des Tutoriums vorkommen}
+		\end{center}
+	\end{frame}
+
+\subsection{Email-Liste}
+
+	\begin{frame}{Email-Liste}
+		Nach dem Email-Desaster: \\
+		\parskip 20pt
+		\begin{block}{Kommunikation}
+			\begin{itemize}
+				\item Bitte Email auf dem Blatt eintragen
+				\item Nach dem Tutorium schauen ob meine Email angekommen ist
+			\end{itemize}
+		\end{block}
+	\end{frame}
+
+\section{Rekurrenzen}
+\subsection{Erklärung}
+	\begin{frame}{Rekurrenz Beispiel}
+		\begin{center}
+			$ T(n)=\left\{\begin{array}{cr} 1, & \mbox{falls } n = 1\\ 2 T(\lfloor n / 2 \rfloor) + n, & \mbox{falls } n \geq 2 \end{array}\right. $
+
+			\parskip 14pt
+			$n \in 2 ^{m} $ für $ m \in \mathbb{N} _{0} $
+
+		\end{center}
+		\begin{block}{Vorgehen}
+			\begin{enumerate}
+				\item Lösung raten...
+				\item Beweisen, dass die Lösung stimmt
+			\end{enumerate}
+		\end{block}
+
+	\end{frame}
+	
+	\begin{frame}
+		Umformung: \\
+		$T(2^m) = 2* T(2^{m - 1}) + 2^m$ mit $T(1) = 1$\\
+		$S(m) = 2 * S(m) + 2^m$ mit $S(0) = 1$ \\
+		\parskip 12pt
+		Ersten Werte:
+		\begin{itemize}
+			\item $S(0) = T(2^0) = T(1) = 1$
+			\item $S(1) = T(2^1) = T(2) = 2 * 1 + 2 = 4$
+			\item $S(2) = T(2^2) = T(4) = 2 * (2 * 1 + 2) + 4 = 12$
+			\item $S(3) = T(2^3) = T(8) = 2 * (2 * (2 * 1 + 2) + 4 ) + 8 = 32$
+			\item $S(4) = T(2^4) = T(16) = 2 * ( 2 * (2 * (2 * 1 + 2) + 4 ) + 8 ) + 16 = 70$
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Rekurrenzen}
+		Durch scharfes Hinsehen erkennen wir eine mögliche Lösung: \\
+		\ \\
+		\centerline{\large{$S(m) = 2^{m+1} + (m-1) * 2^{m}$}}
+		\ \\
+		Beweis der Lösung durch völlständige Induktion.
+	\end{frame}
+
+	\begin{frame}{Beweis durch vollständige Induktion}
+		\textbf{IA:} $S(0) = T(2^0) = T(1) = 1$ \\
+		\textbf{IV:} $S(m) = 2^{m+1} + (m - 1)*2^{m}$\\
+		\textbf{IS:} m $\rightarrow$ $m+1$
+		\begin{align}
+			S(m+1)& = 2 * S(m) + 2^{m+1} \\
+			& = 2 * ( 2^{m+1} + (m-1) * 2^m) + 2^{m+1} \\
+			& = 2^{m+2} + (m-1) * 2^{m+1} + 2^{m+1} \\
+			& = 2^{m+2} + m * 2^{m+1}
+		\end{align}
+		\ \\
+		Zurück nach T(n) rechnen für Finale Lösung: \\
+		$T(n) = S(\log _2 n) = 2^{\log _2 n + 1} * (\log _2 n - 1) * 2 ^{\log _2 n}$
+	\end{frame}
+
+
+\section{Datenstrukturen}
+	\begin{frame}{Test Test}
+		Test
+	\end{frame}
+
+
+\end{document}

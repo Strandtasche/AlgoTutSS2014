@@ -1,0 +1,128 @@
+\input{includes/head}
+\title[Algorithmen I SS 14]{Tutorium 2}
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}
+	\frametitle{Datenstrukturen: Überblick}
+	\textbf{Listen:}\\
+	\begin{itemize}
+		\item \textit{List:} doppelt verkette Liste
+		\item \textit{SList:} einfach verkette Liste
+	\end{itemize}
+
+	\textbf{Arrays:}\\
+	\begin{itemize}
+		\item \textit{UArray:} unbounded Array
+		\item \textit{CArray:} cyclic Array
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{amortisierte Analyse}
+	\begin{itemize}
+		\item gemittelter Aufwand für eine Sequenz von Operationen im Worst-case
+		\item Kosten einer Operation gering, auch wenn eine einzelne Operation kostspielig ist
+		\item keine Einbeziehung von Wahrscheinlichkeiten
+		\item Beispiel: unbounded Arrays 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Konto-Methode}
+	für jede Operation:
+	\begin{itemize}
+		\item $\hat{c}_i$ \textbf{amortisierte Kosten}
+		\item $c_i$ \textbf{tatsächliche Kosten}
+		\item $\hat{c}_i \geq c_i  \Rightarrow $  Guthaben einzahlen
+		\item $\hat{c}_i \leq c_i  \Rightarrow $  Guthaben abheben
+		\item Konto darf \textbf{nie} negativ werden
+		\begin{itemize}
+			\item $ \forall n \in \mathbb{N} : \sum_{i=1} ^n \hat{c}_i \geq \sum_{i=1} ^n c_i$
+		\end{itemize}
+
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Beispiel: Unbounded Arrays}
+
+	\begin{itemize}
+		\item amortisierte Kosten:
+		\begin{itemize}
+			\item \textbf{push}: 3 Tokens
+			\begin{itemize}
+				\item 1 Token: Einfügen des Elements
+				\item 2 Tokens: Konto
+			\end{itemize}
+			\item \textbf{pop}: 2 Tokens
+			\begin{itemize}
+				\item 1 Token: Löschen des Elements
+				\item 1 Token: Konto
+			\end{itemize}
+		\end{itemize}
+		\item falls ein Feld mit \textit{n} Elementen durch \textbf{reallocate} verkleinert oder vergrößert wird,
+		 müssen \textit{n} Elemente kopiert werden $\Rightarrow$ \textit{n} Tokens müssen vorhanden sein
+
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Beispiel: Unbounded Arrays}
+	\begin{itemize}
+		\item Anfangszustand nach \textbf{reallocate}:
+		\begin{itemize}
+			\item \textit{n} Elemente, kein Guthaben vorhanden \\ \ \\
+		\end{itemize}
+
+
+		\item Sequenz von \textbf{push}-Operartionen:
+		\begin{itemize}
+			\item \textbf{reallocate} wird nach \textit{n} \textbf{push}-Operartionen aufgerufen
+			\item Guthaben: 2\textit{n} Tokens
+			\item \textbf{reallocate}-Aufruf: 2\textit{n} Elemente werden kopiert $\rightarrow$ genug Tokens \\ \ \\
+		\end{itemize} 
+
+		\item Sequenz von \textbf{pop}-Operationen:
+		\begin{itemize}
+			\item \textbf{reallocate} wird nach \textit{$\frac{n}{2}$} \textbf{push}-Operartionen aufgerufen
+			\item Guthaben: \textit{$\frac{n}{2}$} Tokens
+			\item \textbf{reallocate}-Aufruf: \textit{$\frac{n}{2}$} Elemente werden kopiert $\rightarrow$ genug Tokens \\ \ \\
+		\end{itemize} 
+
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Kreativaufgabe}
+	Entwickeln Sie eine Datenstruktur die folgendes kann:
+	\begin{itemize}
+		\item \textit{pushBack} und \textit{popBack} in  $\mathcal{O}(1)$ im Worst-Case nicht nur amortisiert.
+		\item Zugriff auf das k-te Element in $\mathcal{O}(\log n)$ im Worst-Case nicht nur amortisiert.
+	\end{itemize}
+	Wobei ein eine Speicherallokation beliebiger Größe nur O(1) kosten soll.\\
+	\ \\
+	\textbf{Zusatzaufgabe:}\\
+	\begin{itemize}
+		\item \textit{pushBack} und \textit{popBack} in  $\mathcal{O}(\log n)$ im Worst-Case nicht nur amortisiert.
+		\item Zugriff auf das k-te Element in $\mathcal{O}(1)$ im Worst-Case nicht nur amortisiert.
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Rekurrenzen}
+
+\end{frame}
+
+\end{document}
+\end{document}
