@@ -1,0 +1,13 @@
+\beamer@endinputifotherversion {3.20pt}
+\select@language {ngerman}
+\select@language {ngerman}
+\beamer@sectionintoc {1}{Einf\IeC {\"u}hrung}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Vorstellung}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{Kontakt}{3}{0}{1}
+\beamer@subsectionintoc {1}{3}{Organisatorisches}{5}{0}{1}
+\beamer@sectionintoc {2}{Pseudocode und Schleifeninvarianten}{9}{0}{2}
+\beamer@subsectionintoc {2}{1}{Pseudocode}{9}{0}{2}
+\beamer@sectionintoc {3}{Binary Search}{10}{0}{3}
+\beamer@sectionintoc {4}{O-Kalk\IeC {\"u}l}{11}{0}{4}
+\beamer@subsectionintoc {4}{1}{Einf\IeC {\"u}hrung}{11}{0}{4}
+\beamer@subsectionintoc {4}{2}{O-Kalk\IeC {\"u}l Aufgaben}{14}{0}{4}
