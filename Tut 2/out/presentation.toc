@@ -1,9 +1,14 @@
 \beamer@endinputifotherversion {3.20pt}
 \select@language {ngerman}
 \select@language {ngerman}
-\beamer@sectionintoc {1}{Organisatorisches}{2}{0}{1}
-\beamer@subsectionintoc {1}{1}{\IeC {\"U}bungsbl\IeC {\"a}tter}{2}{0}{1}
-\beamer@subsectionintoc {1}{2}{Email-Liste}{3}{0}{1}
-\beamer@sectionintoc {2}{Rekurrenzen}{4}{0}{2}
-\beamer@subsectionintoc {2}{1}{Erkl\IeC {\"a}rung}{4}{0}{2}
-\beamer@sectionintoc {3}{Datenstrukturen}{8}{0}{3}
+\beamer@sectionintoc {1}{Rekurrenzen}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Aufgabe}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{L\IeC {\"o}sung}{4}{0}{1}
+\beamer@subsectionintoc {1}{3}{Korrektheitsbeweis}{5}{0}{1}
+\beamer@sectionintoc {2}{Datenstrukturen}{6}{0}{2}
+\beamer@subsectionintoc {2}{1}{Listen}{6}{0}{2}
+\beamer@subsectionintoc {2}{2}{Aufgaben zu Listen}{16}{0}{2}
+\beamer@sectionintoc {3}{Amortisierte Analyse}{17}{0}{3}
+\beamer@sectionintoc {4}{Kreativaufgabe}{21}{0}{4}
+\beamer@subsectionintoc {4}{1}{Aufgabenteil a)}{21}{0}{4}
+\beamer@subsectionintoc {4}{2}{Aufgabenteil b)}{22}{0}{4}
