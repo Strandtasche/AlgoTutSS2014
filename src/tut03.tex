@@ -22,16 +22,18 @@
 	\end{frame}
 
 	\subsection{Aufgabe I b}	
-	\begin{frame}{Hashing Aufgabe Ib)}
+	\begin{frame}{Hashing Aufgabe I Lösung}
 		Mit Verketteten Listen:
 		\ \\
 		\ \\
 		\begin{tabular*}{0.75\textwidth}{  c | c | c | c | c | c | c | c | c | c | c  }
 			0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
 			\hline
-			19 & 97 & 76 & 66 &  &  &  & 15 & 93 &  & 40 \\
-			  &  &  &  &  &  &  & 70 & 82 &  &  \\
+			19 & 97 & 76 & 66 & nil & nil & nil & 15 & 93 & nil & 40 \\
+			 nil & nil & nil &  &  &  &  & 70 & 82 &  & nil \\
 			  &  &  &  &  &  &  &  & 71 &  &  \\
+ 			  &  &  &  &  &  &  &  & nil &  &  \\
+
 			
 		\end{tabular*}
 		\ \\
@@ -45,7 +47,17 @@
 			93 & 97 & 40 & 66 & 19 & 76 &  & 70 & 71 & 82 & 15 \\			
 		\end{tabular*}
 
-		
+	\end{frame}
+
+	\begin{frame}{Hashing Aufgabe I b)}
+		\begin{enumerate}
+			\item Bestimme die Anzahl von Hashtabellenzugriffen für beide Hashing Varianten
+			\item Bestimme die zu erwartenden Kosten für eine erfolgreiche Suche wenn die Wahrscheinlichkeiten der Suche eines Datums gleich verteilt sind
+			\item Bestimme den Speicherverbraucht für die beiden Hashing Varianten
+			\begin{itemize}
+				\item ein Maschinenwort pro Zeiger, Element und Nullzeiger (Ende einer Liste) 
+			\end{itemize}  
+		\end{enumerate}
 	\end{frame}
 
 \end{document}
