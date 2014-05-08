@@ -1,53 +1,62 @@
 \beamer@endinputifotherversion {3.20pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
-\headcommand {\sectionentry {1}{Rekurrenzen}{2}{Rekurrenzen}{0}}
+\headcommand {\sectionentry {1}{Organisatorisches}{2}{Organisatorisches}{0}}
 \headcommand {\beamer@sectionpages {1}{1}}
 \headcommand {\beamer@subsectionpages {1}{1}}
-\headcommand {\beamer@subsectionentry {0}{1}{1}{2}{Aufgabe}}\headcommand {\beamer@subsectionpages {2}{1}}
-\headcommand {\slideentry {1}{1}{1}{2/2}{Aufgabe}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{2}{\IeC {\"U}bungsbl\IeC {\"a}tter}}\headcommand {\beamer@subsectionpages {2}{1}}
+\headcommand {\slideentry {1}{1}{1}{2/2}{\IeC {\"U}bungsbl\IeC {\"a}tter}{0}}
 \headcommand {\beamer@framepages {2}{2}}
-\headcommand {\slideentry {1}{1}{2}{3/3}{Aufgabe}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{3}{Email-Liste}}\headcommand {\beamer@subsectionpages {2}{2}}
+\headcommand {\slideentry {1}{2}{1}{3/3}{Email-Liste}{0}}
 \headcommand {\beamer@framepages {3}{3}}
-\headcommand {\beamer@subsectionentry {0}{1}{2}{4}{L\IeC {\"o}sung}}\headcommand {\beamer@subsectionpages {2}{3}}
-\headcommand {\slideentry {1}{2}{1}{4/4}{L\IeC {\"o}sung}{0}}
+\headcommand {\sectionentry {2}{Rekurrenzen}{4}{Rekurrenzen}{0}}
+\headcommand {\beamer@sectionpages {2}{3}}
+\headcommand {\beamer@subsectionpages {3}{3}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{4}{Aufgabe}}\headcommand {\beamer@subsectionpages {4}{3}}
+\headcommand {\slideentry {2}{1}{1}{4/4}{Aufgabe}{0}}
 \headcommand {\beamer@framepages {4}{4}}
-\headcommand {\beamer@subsectionentry {0}{1}{3}{5}{Korrektheitsbeweis}}\headcommand {\beamer@subsectionpages {4}{4}}
-\headcommand {\slideentry {1}{3}{1}{5/5}{Korrektheitsbeweis}{0}}
+\headcommand {\slideentry {2}{1}{2}{5/5}{Aufgabe}{0}}
 \headcommand {\beamer@framepages {5}{5}}
-\headcommand {\sectionentry {2}{Datenstrukturen}{6}{Datenstrukturen}{0}}
-\headcommand {\beamer@sectionpages {2}{5}}
-\headcommand {\beamer@subsectionpages {5}{5}}
-\headcommand {\beamer@subsectionentry {0}{2}{1}{6}{Listen}}\headcommand {\beamer@subsectionpages {6}{5}}
-\headcommand {\slideentry {2}{1}{1}{6/6}{Listen}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{6}{L\IeC {\"o}sung}}\headcommand {\beamer@subsectionpages {4}{5}}
+\headcommand {\slideentry {2}{2}{1}{6/6}{L\IeC {\"o}sung}{0}}
 \headcommand {\beamer@framepages {6}{6}}
-\headcommand {\slideentry {2}{1}{2}{7/15}{Listen}{0}}
-\headcommand {\beamer@framepages {7}{15}}
-\headcommand {\beamer@subsectionentry {0}{2}{2}{16}{Aufgaben zu Listen}}\headcommand {\beamer@subsectionpages {6}{15}}
-\headcommand {\slideentry {2}{2}{1}{16/16}{Aufgaben zu Listen}{0}}
-\headcommand {\beamer@framepages {16}{16}}
-\headcommand {\sectionentry {3}{Amortisierte Analyse}{17}{Amortisierte Analyse}{0}}
-\headcommand {\beamer@sectionpages {6}{16}}
-\headcommand {\beamer@subsectionpages {16}{16}}
-\headcommand {\slideentry {3}{0}{2}{17/17}{}{0}}
-\headcommand {\beamer@framepages {17}{17}}
-\headcommand {\slideentry {3}{0}{3}{18/18}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{7}{Korrektheitsbeweis}}\headcommand {\beamer@subsectionpages {6}{6}}
+\headcommand {\slideentry {2}{3}{1}{7/7}{Korrektheitsbeweis}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\sectionentry {3}{Datenstrukturen}{8}{Datenstrukturen}{0}}
+\headcommand {\beamer@sectionpages {4}{7}}
+\headcommand {\beamer@subsectionpages {7}{7}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{8}{Listen}}\headcommand {\beamer@subsectionpages {8}{7}}
+\headcommand {\slideentry {3}{1}{1}{8/8}{Listen}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {3}{1}{2}{9/17}{Listen}{0}}
+\headcommand {\beamer@framepages {9}{17}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{18}{Aufgaben zu Listen}}\headcommand {\beamer@subsectionpages {8}{17}}
+\headcommand {\slideentry {3}{2}{1}{18/18}{Aufgaben zu Listen}{0}}
 \headcommand {\beamer@framepages {18}{18}}
-\headcommand {\slideentry {3}{0}{4}{19/19}{}{0}}
+\headcommand {\sectionentry {4}{Amortisierte Analyse}{19}{Amortisierte Analyse}{0}}
+\headcommand {\beamer@sectionpages {8}{18}}
+\headcommand {\beamer@subsectionpages {18}{18}}
+\headcommand {\slideentry {4}{0}{2}{19/19}{}{0}}
 \headcommand {\beamer@framepages {19}{19}}
-\headcommand {\slideentry {3}{0}{5}{20/20}{}{0}}
+\headcommand {\slideentry {4}{0}{3}{20/20}{}{0}}
 \headcommand {\beamer@framepages {20}{20}}
-\headcommand {\sectionentry {4}{Kreativaufgabe}{21}{Kreativaufgabe}{0}}
-\headcommand {\beamer@sectionpages {17}{20}}
-\headcommand {\beamer@subsectionpages {17}{20}}
-\headcommand {\beamer@subsectionentry {0}{4}{1}{21}{Aufgabenteil a)}}\headcommand {\beamer@subsectionpages {21}{20}}
-\headcommand {\slideentry {4}{1}{1}{21/21}{Aufgabenteil a)}{0}}
+\headcommand {\slideentry {4}{0}{4}{21/21}{}{0}}
 \headcommand {\beamer@framepages {21}{21}}
-\headcommand {\beamer@subsectionentry {0}{4}{2}{22}{Aufgabenteil b)}}\headcommand {\beamer@subsectionpages {21}{21}}
-\headcommand {\slideentry {4}{2}{1}{22/22}{Aufgabenteil b)}{0}}
+\headcommand {\slideentry {4}{0}{5}{22/22}{}{0}}
 \headcommand {\beamer@framepages {22}{22}}
-\headcommand {\beamer@partpages {1}{22}}
-\headcommand {\beamer@subsectionpages {22}{22}}
-\headcommand {\beamer@sectionpages {21}{22}}
-\headcommand {\beamer@documentpages {22}}
-\headcommand {\def \inserttotalframenumber {14}}
+\headcommand {\sectionentry {5}{Kreativaufgabe}{23}{Kreativaufgabe}{0}}
+\headcommand {\beamer@sectionpages {19}{22}}
+\headcommand {\beamer@subsectionpages {19}{22}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{23}{Aufgabenteil a)}}\headcommand {\beamer@subsectionpages {23}{22}}
+\headcommand {\slideentry {5}{1}{1}{23/23}{Aufgabenteil a)}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{24}{Aufgabenteil b)}}\headcommand {\beamer@subsectionpages {23}{23}}
+\headcommand {\slideentry {5}{2}{1}{24/24}{Aufgabenteil b)}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\beamer@partpages {1}{24}}
+\headcommand {\beamer@subsectionpages {24}{24}}
+\headcommand {\beamer@sectionpages {23}{24}}
+\headcommand {\beamer@documentpages {24}}
+\headcommand {\def \inserttotalframenumber {16}}
