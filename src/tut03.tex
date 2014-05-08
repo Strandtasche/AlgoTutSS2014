@@ -1,0 +1,51 @@
+\input{includes/head}
+\title[Algorithmen I SS 14]{Tutorium 1}
+
+\begin{document}
+\section{Hashing}
+	\subsection{Aufgabe I}
+	\begin{frame}{Hashing Aufgabe I}
+		Gegeben sei die Hashfunktion: \\
+		\begin{center}
+			$ H(k) = (k+3) mod 11$ 
+		\end{center}
+		\ \\
+		Mit einer zugehörigen 11 Einträge großen Hashtabelle \\
+		\ \\
+		Einfügen der Elemente < 70, 71, 66, 97, 82, 15, 93, 40, 19, 76 >
+		\\
+		\begin{enumerate}
+			\item Für Hashing mit verketteten Listen
+			\item Für Hashing mit Linearer Suche
+		\end{enumerate}
+
+	\end{frame}
+
+	\subsection{Aufgabe I b}	
+	\begin{frame}{Hashing Aufgabe Ib)}
+		Mit Verketteten Listen:
+		\ \\
+		\ \\
+		\begin{tabular*}{0.75\textwidth}{  c | c | c | c | c | c | c | c | c | c | c  }
+			0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+			\hline
+			19 & 97 & 76 & 66 &  &  &  & 15 & 93 &  & 40 \\
+			  &  &  &  &  &  &  & 70 & 82 &  &  \\
+			  &  &  &  &  &  &  &  & 71 &  &  \\
+			
+		\end{tabular*}
+		\ \\
+		\parskip 16pt
+		Mit Linearer Suche:
+		\ \\
+		\ \\
+		\begin{tabular*}{0.75\textwidth}{  c | c | c | c | c | c | c | c | c | c | c  }
+			0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+			\hline
+			93 & 97 & 40 & 66 & 19 & 76 &  & 70 & 71 & 82 & 15 \\			
+		\end{tabular*}
+
+		
+	\end{frame}
+
+\end{document}
