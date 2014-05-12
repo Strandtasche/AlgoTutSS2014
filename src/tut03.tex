@@ -1,13 +1,89 @@
 \input{includes/head}
-\title[Algorithmen I SS 14]{Tutorium 1}
+\title[Algorithmen I SS 14]{Tutorium 3}
+
+\usepackage{alltt}
+
+\TitleImage[width=\titleimagewd]{images/title}
 
 \begin{document}
+
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}
+	\Huge
+	\begin{center}
+		Übungsblatt \textbf{2}.
+	\end{center}
+\end{frame}
 \section{Hashing}
-	\subsection{Aufgabe I}
-	\begin{frame}{Hashing Aufgabe I}
+
+
+	\begin{frame}
+		\frametitle{Hashing}
+		\begin{itemize}
+			\item direkte Adressierung (Array) teilweise unpraktikabel
+			\begin{itemize}
+				\item bei großen Mengen M $\Rightarrow$ Array der Größe $|M|$
+				\item wenn tatsächlich gespeicherte Schlüsselmengen $|K| << |M|$ $\Rightarrow$ Hashtabellen
+			\end{itemize}
+			\item $\Theta (|K|)$ statt $\Theta (|M|)$
+			\item Laufzeit im Average-Case nur $\mathcal{O}(1)$
+			\begin{itemize}
+				\item direkte Adressierung $\mathcal{O}(1)$ auch im Worst-Case
+			\end{itemize}
+			\item Slot eines Elements k wird durch die Hashfunktion h(k) bestimmt\\
+ 			$\Rightarrow$ "`gute"' Hashfunktion entscheidend für die Laufzeit
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}
+		\frametitle{Laufzeiten}
+		\begin{itemize}
+			\item Worstcase:
+			\begin{itemize}
+				\item alle Schlüssel in einem Slot 
+				\item $\Theta (n)$
+			\end{itemize}
+			\item Best-Case
+			\begin{itemize}
+				\item jeweils nur einen Schlüssel pro Slot
+				\item $\mathcal{O}(1)$
+			\end{itemize}
+			\item Average-Case, mit
+			\begin{itemize}
+				\item gleichmäßigem Hashing
+				\item doppelt verkette Listen zur Kollisionsauflösung
+				\item Anzahl der Slots proportional zur Anzahl der einzufügenden Elemente 
+				\item $\mathcal{O}(1)$
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Kollisionsauflösung}
+		\begin{itemize}
+			\item verkettete Listen:
+			\begin{itemize}
+				\item hinter jedem Tabellenslot steht eine verkettete Liste
+				\item die Liste muss nach dem gesuchten Element abgesucht werden
+			\end{itemize}
+			\item lineare Suche
+			\begin{itemize}
+				\item $ h(k,i) = (h'(k)+i) mod \ m $
+				\item die Liste muss nach dem gesuchten Element abgesucht werden
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+	\subsection{Aufgabe 1}
+	\begin{frame}{Hashing Aufgabe 1}
 		Gegeben sei die Hashfunktion: \\
 		\begin{center}
-			$ H(k) = (k+3) mod 11$ 
+			$ H(k) = (k+3) mod \ 11$ 
 		\end{center}
 		\ \\
 		Mit einer zugehörigen 11 Einträge großen Hashtabelle \\
@@ -21,8 +97,8 @@
 
 	\end{frame}
 
-	\subsection{Aufgabe I b}	
-	\begin{frame}{Hashing Aufgabe I Lösung}
+	\subsection{Aufgabe 1 b}	
+	\begin{frame}{Hashing Aufgabe 1 Lösung}
 		Mit Verketteten Listen:
 		\ \\
 		\ \\
@@ -31,10 +107,10 @@
 			\hline
 			19 & 97 & 76 & 66 & nil & nil & nil & 15 & 93 & nil & 40 \\
 			 nil & nil & nil & nil &  &  &  & 70 & 82 &  & nil \\
-			  &  &  &  &  &  &  &  & 71 &  &  \\
+			  &  &  &  &  &  &  & nil & 71 &  &  \\
  			  &  &  &  &  &  &  &  & nil &  &  \\
 
-			
+
 		\end{tabular*}
 		\ \\
 		\parskip 16pt
@@ -49,29 +125,29 @@
 
 	\end{frame}
 
-	\begin{frame}{Hashing Aufgabe I b)}
+	\begin{frame}{Hashing Aufgabe 1 b)}
 		\begin{enumerate}
 			\item Bestimme die Anzahl von Hashtabellenzugriffen für beide Hashing Varianten
 			\item Bestimme die zu erwartenden Kosten für eine erfolgreiche Suche wenn die Wahrscheinlichkeiten der Suche eines Datums gleich verteilt sind
-			\item Bestimme den Speicherverbraucht für die beiden Hashing Varianten
+			\item Bestimme den Speicherverbrauch für die beiden Hashing Varianten
 			\begin{itemize}
 				\item ein Maschinenwort pro Zeiger, Element und Nullzeiger (Ende einer Liste) 
 			\end{itemize}  
 		\end{enumerate}
 	\end{frame}
 
-	\begin{frame} {Hashing Aufgabe I b) Lösung}
+	\begin{frame} {Hashing Aufgabe 1 b) Lösung}
 		\begin{block}{Hashtabellenzugriffe}
 			\begin{itemize}
-				\item $|\text{Einfügeoperationen}| = 10$
-				\item $|\text{Einfügeoperationen}| + |\text{Hashings auf bereits belegte Werte}| = 10 + 17 = 27 $
+				\item mit Listen: $|\text{Einfügeoperationen}| = 10$
+				\item mit linearer Suche: $|\text{Einfügeoperationen}| + |\text{Hashings auf bereits belegte Werte}| = 10 + 17 = 27 $
 			\end{itemize}
 		\end{block}
 		\ \\
 		\begin{block}{Erwartete Kosten}
 			\begin{itemize}
-				\item $ \frac{\text{Traversierung aller Listen in der Tabelle}}{|\text{eingefügte Elemente}|}= \frac{14}{12}  $
-				\item $ \frac{\text{Hashtabellenzugriffe}}{|\text{eingefügte Elemente}|} =  \frac{27}{12} $
+				\item mit Listen: $ \frac{\text{Traversierung aller Listen in der Tabelle}}{|\text{eingefügte Elemente}|}= \frac{14}{10}  $
+				\item mit linearer Suche: $ \frac{\text{Hashtabellenzugriffe}}{|\text{eingefügte Elemente}|} =  \frac{27}{10} $
 			\end{itemize}
 		\end{block}
 
@@ -80,14 +156,125 @@
 
 	\end{frame}
 
-	\begin{frame}{Hashing Aufgabe I b) Lösung}
+	\begin{frame}{Hashing Aufgabe 1 b) Lösung}
 		\begin{block}{Speicherbedarf}
 			\begin{itemize}
-				\item $|\text{Zeiger}| + |\text{Elemente}| + |\text{Nullzeiger}|$
-				\item 
+				\item mit Listen: $|\text{Zeiger}| + |\text{Elemente}| + |\text{Nullzeiger}| = 10 + 10 + 11 = 31$
+				\item mit linearer Suche: $m = 11$
 			\end{itemize}
 		\end{block}
 
 	\end{frame}
+
+\begin{frame}
+	\frametitle{Hashing Aufgabe 2}
+	Gegeben sei ein Array A = A[1], . . . , A[n] mit n Zahlen in beliebiger Reihenfolge.
+	Für eine gegebenen Zahl x soll ein Paar (A[i], A[j]), 1 $\leq$ i, j $\leq$ n gefunden werden, für das
+	gilt: A[i] + A[j] = x.
+
+	\begin{enumerate}
+		\item Geben Sie eine Lösung für x = 33 und A = (7, 15, 21, 14, 18, 3, 9) an.
+		\item Geben Sie einen effizienten Algorithmus an, der das Problem in erwarteter Zeit $\mathcal{O}(n)$ löst, und bei Erfolg ein Paar (A[i], A[j]) ausgibt, ansonsten Nil.
+	\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Hashing Aufgabe 2 Lösung}
+	\begin{itemize}
+		\item \textbf{Lösung mit Hashing:} 
+		\begin{itemize}
+			\item[1.] alle Elemente in die Hash-Tabelle einfügen
+			\item[2.] zu jeder Zahl das "`Gegenstück"' suchen  ("`Gegenstück"' von A[i] ist x - A[i])
+		\end{itemize}
+		\item \textbf{Wichtig:} \\ Die Hashtabelle muss in $\Omega (n)$ Slots haben, damit der Satz aus der Vorlesung gilt.
+Aus diesem folgt das die erwartete Laufzeit von Einfügen und Tabellenlookup in $\mathcal{O}(n)$ ist.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kreativaufgabe}
+
+	\begin{itemize}
+		\item[a)] Entwerfen Sie eine Realisierung eines \textit{SparseArray} (auf deutsch soviel wie "`spärlich besetztes Array"'). Dabei handelt es sich um eine Datenstruktur mit 
+			den Eigenschaften eines beschränkten Arrays, die zusätzlich schnelle Erzeugung und schnellen Reset ermöglicht.
+			Nehmen Sie dabei an, dass \textbf{allocate} beliebig viel \textit{uninitialisierten} Speicher in konstanter Zeit liefert. Im Detail habe das \textit{SparseArray} folgende Eigenschaften:
+		\begin{itemize}
+			\item Ein \textit{SparseArray} mit n Slots braucht $\mathcal{O}(n)$ Speicher.
+			\item Erzeugen eines leeren \textit{SparseArray} mit \textit{n} Slots braucht $\mathcal{O}(1)$ Zeit.
+			\item Das \textit{SparseArray} unterstützt eine Operation \textit{reset}, die es in $\mathcal{O}(1)$ Zeit in leeren Zustand versetzt.
+			\item Das \textit{SparseArray} unterstützt die Operation \textit{get(i)} und \textit{set(i, x)}. Dabei liefert \textit{A.get(i)} den Wert, der sich im \textit{i}-ten Slot des \textit{SparseArray A} befindet;\\
+				\textit{A.set(i, x)} setzt das Element im i-ten Slot auf den Wert x. Wurde der i-te Slot seit der Erzeugung bzw. dem letzten reset noch nicht mit auf einen 
+				bestimmten Wert gesetzt, so liefert A.get(i) einen speziellen Wert $\bot$. Die Operationen get und set dürfen zudem beide nicht mehr als $\mathcal{O}(1)$ Zeit verbrauchen (man nennt so etwas \textit{wahlfreien 	
+				Zugriff}, engl. \textit{random access})
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kreativaufgabe Lösung a)}
+	\begin{itemize}
+		\item Benutzung von zwei uninitialisierten Arrays D und H mit jeweils n Slots
+		\item in D werden die Nutzdaten gespeichert und zusätzlich in jedem Slot eine nicht negative Zahl
+		\item in H werden Indizes abgespeichert
+		\item zusätzlich Zähler c mit 0 initialisiert
+		\item \textbf{set(i,x)}: D[i].daten := x ; D[i].zahl := c; H[c] := i; c++ 
+		\item \textbf{get(i)}: Überprüft ob der i-te Slot gesetzt wurde:
+			\begin{itemize}
+				\item D[i].zahl < c und H[D[i].zahl] = i $\Rightarrow$ D[i] wurde gesetzt
+			\end{itemize}
+		\item \textbf{reset}: Es wird c:= 0 gesetzt und somit werden alle Einträge invalidiert
+
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kreativaufgabe}
+
+	\begin{itemize}
+		\item[b)] Nehmen Sie an, dass die Datenelemente, die Sie im \textit{SparseArray} ablegen wollen, recht groß sind (also z.B. nicht nur einzelne Zahlen, sondern Records mit 10, 20 oder mehr Einträgen).
+			Geht Ihre Realisierung unter dieser Annahme sparsam oder verschwenderisch mit dem Speicherplatz um? Wenn Sie Ihre Realisierung für verschwenderisch halten, überlegen Sie
+			ob und wie Sie es besser machen können.
+	\end{itemize}
+
+\end{frame}
+\begin{frame}
+	\frametitle{Kreativaufgabe Lösung a)}
+	\begin{itemize}
+		\item Lösung aus a) ist verschwenderisch
+		\begin{itemize}
+			\item n Slots für Nutzdaten allokiert: zwar uninitialisiert aber reserviert
+		\end{itemize} 
+		\item Stattdessen:
+		\begin{itemize}
+			\item Nutzdaten mit ins Array H speichern 
+			\item für H ein \textit{unbounded Array} verwenden, Anfangs 1 Slot
+		\end{itemize}
+		\item Sei m die Anzahl der tatsächlich gesetzten Elemente. Dann belegt D den Platz für 
+		n nichtnegative ganze Zahlen. Das unbeschränkter Array H belegt maximal den Platz für 3m
+		Nutzdatenelemente und Indizes (während des Kopiervorganges, wenn das unbeschränkte
+		Array kopiert reallokiert wird)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kreativaufgabe}
+
+	\begin{itemize}
+		\item[c)] Vergleichen Sie Ihr \textit{SparseArray} mit bounded Arrays. Welche Vorteile und Nachteile sehen
+			Sie im Hinblick auf den Speicherverbrauch und auf das Iterieren über alle Elemente mit set eingefügten Elemente?
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kreativaufgabe Lösung b)}
+	\begin{itemize}
+		\item Iterieren dauert nur O(m) statt O(n) Zeit. Der Speicherverbrauch ist schlechter, wenn die
+			Nutzdatenelemente klein sind. Für große Nutzdatenelemente kann der Speicherverbrauch sogar erheblich besser sein,
+			sofern man eine sparsame Realisierung wie in b) verwendet und nicht zuviele Elemente eingefügt werden.
+	\end{itemize}
+\end{frame}
 
 \end{document}
