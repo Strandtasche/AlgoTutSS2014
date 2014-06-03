@@ -1,0 +1,27 @@
+q
+\begin{frame} {Quicksort: Worst case}
+
+	Letztes Tut: Worst case <=> Pivot ist immer Max/Min
+	
+	\begin{exampleblock} {Gedankenspiel:}
+		Array bestehenend aus nur gleichen Elementen: \ \\
+		\ \\
+		\centerline{< 2, 2, 2, 2 >}
+		\ \\
+		Wie viele Vergleiche?
+		\ \\
+		\ \\
+		$\rightarrow$ Auf Mengen mit vielen gleichen Elementen: \\
+		\centerline{Standart-Quicksort schlecht}
+		
+	\end{exampleblock} 
+\end{frame}
+
+\begin{frame}{Stattdessen: 3-way-partition}
+	\includegraphics[width=10cm]{images/threeway} \\
+	\begin{itemize}
+		\item 3 Pointer: i, j ,k 
+		\item Am Ende den ($ = p$) Teil zwischen ($< p$) und ($> p$) schieben.
+	\end{itemize}
+
+\end{frame}
