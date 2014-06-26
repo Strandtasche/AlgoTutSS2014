@@ -1,9 +1,9 @@
 \input{includes/head}
-\title[Algorithmen I SS 14]{Tutorium 4}
+\title[Algorithmen I SS 14]{Tutorium 6}
 
 \usepackage{alltt}
 
-\TitleImage[height=\titleimageht]{images/sortinghat}
+\TitleImage[width=\titleimagewd]{images/title02}
 
 \definecolor{english}{rgb}{0.0, 0.5, 0.0}
 
@@ -13,36 +13,28 @@
   \maketitle
 \end{frame}
 
+\begin{frame}
+	\begin{center}
+		\Huge
+		Heaps
+	\end{center}
+\end{frame}
+
 \begin{frame}{Heaps}
-	Eine baumartige Datenstruktur:
+	(Binärer) Baum mit zusätzlicher Eigenschaft:
 	\begin{itemize}
-		\item Die Wurzel jedes Subtrees ist in der Ordnungsrelation größer als alle Elemente unter ihm.
-		\item Häufige Ordnungen auf Heaps:
-		\begin{itemize}
-			\item kleiner-gleich: min-Heap
-			\item größer-gleich: max-Heap
-		\end{itemize}
+		\item Eltern sind kleiner gleich ihren Kindern: $\forall v: parent(v) \leq v$
+		\item Auch umgekehrt möglich (Max-Heap)
 	\end{itemize}
-	\ \\
-	\ \\
-	\centerline{Im weiteren betrachten wir nur \textbf{Binäre Heaps}}
 
 \end{frame}
 
-\begin{frame} {Heap Operationen}
+\begin{frame}{Heapoperationen}
 	\begin{itemize}
-		\item Wurzel betrachten in $\mathcal{O}(1)$
-		\begin{itemize}
-			\item in min-Heaps: das Minimum
-			\item in max-Heaps: das Maximum
-		\end{itemize}
-		\item Heap Eigenschaft herstellen in $\mathcal{O}(n)$
-		\item Heap reparieren in $\mathcal{O}(\log  n)$
-	\end{itemize}
-	Daraus folgt:
-	\begin{itemize}
-		\item Einfügen in $\mathcal{O}($log $n )$
-		\item Wurzel extrahieren in $\mathcal{O}( \log \ n)$
+		\item Minimum finden in $\mathcal{O}(1)$ (Wurzel betrachten)
+		\item Einfügen in $\mathcal{O}(\log{n})$
+		\item Wurzel extrahieren in $\mathcal{O}(\log{n})$
+		\item Heap aufbauen in $\mathcal{O}(n)$
 	\end{itemize}
 
 \end{frame}
@@ -50,22 +42,80 @@
 \begin{frame}{Implementierung}
 	Im Computer effizient als Array darstellbar: \\
 	\includegraphics[scale=0.2]{images/heapArray.png} \\
-	$\Rightarrow$ Traversierung des Baums?
 \end{frame}
 
-\begin{frame}{Baumnavigation in Array Darstellung}
+\begin{frame}{Baumnavigation in Arraydarstellung}
 	\begin{description}
-		\item[leftChild(i):] heap[$2*i$]
-		\item[rightChild(i):] heap[$2*i + 1$]
-		\item[parent(i):] heap[$\lfloor i / 2 \rfloor$]
+		\item[leftChild(i):] heap[$2 i$]
+		\item[rightChild(i):] heap[$2 i + 1$]
+		\item[parent(i):] heap[$\lfloor \frac{i}{2} \rfloor$]
 	\end{description}
-	\ \\
-	\ \\
-	Ein Heap der Höhe h hat mindestens $2^{h - 1} $ und maximal $ 2^{h} - 1$ Elemente \\
-	\ \\
-	Ein Heap mit n Elementen hat die Höhe $\lceil \log_2(n) \rceil$
+	\begin{itemize}
+		\item Ein Heap der Höhe h hat mindestens $2^{h - 1} $ und maximal $ 2^{h} - 1$ Elemente
+		\item Ein Heap mit n Elementen hat die Höhe $1 + \lfloor \log_2(n) \rfloor$
+	\end{itemize}
 \end{frame}
 
+\begin{frame}{Heapoperationen: insert}
+	\begin{enumerate}
+		\item Einfügen des neuen Elements an letzter Stelle
+		\item Heap-Eigenschaft ist jetzt möglicherweise dort verletzt
+		\item Schiebe Element so lange nach \emph{oben}, bis Heap-Eigenschaft wiederhergestellt ist (siftUp)
+		\item Also: Vergleiche jeweils mit dem Elternelement und vertausche, falls es größer ist
+	\end{enumerate}
+\end{frame}
 
+\begin{frame}{Heapoperationen: deleteMin}
+	\begin{enumerate}
+		\item Lösche erstes Element und ersetze es durch letztes Element
+		\item Heap-Eigenschaft nun möglicherweise dort verletzt
+		\item Schiebe Element so lange nach \emph{unten}, bis Heap-Eigenschaft wiederhergestellt ist (siftDown)
+		\item Also: Vergleiche jeweils mit Kindelementen und vertausche mit dem kleineren
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Heapoperationen: buildHeap}
+	\begin{enumerate}
+		\item Füge Elemente ohne Beachtung der Heap-Eigenschaft ein
+		\item Stelle Heap-Eigenschaft ebenenweise von unten wieder her
+		\item Führe siftDown auf alle Elemente, beginnend bei der vorletzten Ebene aus
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Heapsort}
+	\begin{itemize}
+		\item Benutze \emph{buildHeap()} um Heap aufzubauen
+		\item $n$ mal \emph{deleteMin()} um Minimum zu extrahieren
+		\item insgesamt also Laufzeit $\mathcal{O}(n \log{n})$
+		\item echt in-place
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Aufgabe: Heapsort}
+	Sortiere die Folge $\langle 65, 32, 85, 37, 84, 64, 3, 31, 47 \rangle$ mit Heapsort aufsteigend.
+\end{frame}
+
+\begin{frame}{Kreativaufgabe: Pancake-Sorting}
+	\begin{itemize}
+		\item \textbf{gegeben:} Stapel von \emph{n} Pancakes, Pancake-Flipper mit dem man die obersten \emph{k} Pancakes drehen kann ($ k \leq n $).
+		\item \textbf{gesucht:} Schnelles Verfahren zum Sortieren der Pancakes.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Lösung: Pancake-Sorting}
+	\begin{itemize}
+		\item Größten Pancake nach oben flippen und dann Stapel komplett wenden. Anschließend genauso für die kleineren Panecakes.  $ \Rightarrow $ Laufzeit: $2n$
+		\item Man kann allerdings nach dem Zweitkleinsten aufhören. $ \Rightarrow $ Laufzeit: $2(n - 1)$
+		\item Hat man den drittgrößten Pancake erreicht, gibt es für die kleinsten nur 2 Möglichkeiten, d.h. muss man maximal einmal drehen. $ \Rightarrow $ Laufzeit: $2(n-1) - 1 = 2n - 3$
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Tree}
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/tree}
+	\end{center}
+\end{frame}
 
 \end{document}

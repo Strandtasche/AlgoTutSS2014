@@ -1,0 +1,77 @@
+\input{includes/head}
+\title[Algorithmen I SS 14]{Tutorium 9}
+
+\usepackage{alltt}
+
+\TitleImage[width=\titleimagewd]{images/path}
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\Huge
+		Kürzeste Wege
+	\end{center}
+\end{frame}
+
+\begin{frame}{Dijkstra-Algorithmus}
+	\begin{itemize}
+		\item berechnet Entfernung von allen anderen (erreichbaren) Knoten zu Startknoten (single source shortest path)
+		\item Einschränkung: keine negativen Kantengewichte
+		\item Laufzeit abhängig von der verwendeten Priority-Queue
+			\begin{itemize}
+				\item naiv $\mathcal{O}(m + n^2)$
+				\item Binärer Heap $\mathcal{O}((m + n) \log{n}$
+				\item mit Fibonacci Heap sogar $\mathcal{O}(m + n \log{n})$
+				\item noch weitere Verbesserungen mit speziellen Anpassungen möglich
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Dijkstra: Funktionsweise (1)}
+	\begin{itemize}
+		\item speichere vorläufige Entfernung zu Startknoten $s$ in Array $d$, zu Beginn $d[s] = 0, \forall v \in V\setminus{\{s\}}: d[v] = \infty$
+		\item \emph{Relaxiere} Kanten: Wenn für eine Kante $(u, v)$ gilt, dass $d[u] + c(u, v) < d[v]$, setze $d[v] := d[u] + c(u, v)$
+		\item Also: Wenn es über eine neue Kante einen kürzeren Weg gibt, nimm diesen
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Dijkstra: Funktionsweise (2)}
+	\begin{itemize}
+		\item Problem: Wie oft müssen welche Kanten relaxiert werden, um wirklich kürzeste Wege zu haben?
+		\item Lösung: Zum Knoten mit der kleinsten Entfernung kann kein kürzerer Weg mehr gefunden werden
+		\item Verwalte unbetrachtete Knoten dazu in einer Priority-Queue
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Dijkstra: Algorithmus}
+	\begin{enumerate}
+		\item Initialisiere $d$.
+		\item Füge Startknoten in Priority-Queue $Q$ ein.
+		\item Solange $Q$ Elemente enthält:
+			\begin{enumerate}
+				\item Nimm minimalen Knoten $u$ aus $Q$.
+				\item Relaxiere alle ausgehenden Kanten $(u, v)$ von $u$. Füge jeden Knoten $v$ in $Q$ ein oder aktualisiere die Priorität (Entfernung).
+				\item Der Knoten $u$ muss jetzt nicht mehr betrachtet werden.
+			\end{enumerate}
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Kreativaufgabe: Überwachungsstaat}
+	Stadt X hat viele Straßen und Kreuzungen. Du bist ein gewissenloser Diener des Überwachungsstaates. Wir wollen eine Polizeistationen so an Kreuzungen bauen, dass jede Straße genau eine Station an einem ihrer Enden hat. Da es in X noch mehr Baustellen als in Karlsruhe gibt kann man keinerlei aussagen über die Topologie von X machen. \\ \ \\
+
+	\textbf{Aufgabe}:\\ Diskutiert Lösungsansätze wie man in Linearer Zeit entscheiden kann, ob dies möglich ist, oder wir wertvolle Mittel, die ansonsten für Bundestrojaner ausgegeben werden könnten, für mehr Polizeistationen ausgeben müssen.
+\end{frame}
+
+\begin{frame}{Kreativaufgabe: Zug fahren}
+	Von einem Startbahnhof aus soll ein Zielbahnhof erreicht werden.
+	Gegeben ist dazu ein Fahrplan, der für jede Verbindung einen Start- und einen Zielbahnhof, sowie eine Abfahrts- und eine Ankunftszeit enthält.
+	Die Zeit, die zum Umsteigen benötigt wird, soll vernachlässigt werden. \\ \ \\
+
+	\textbf{Aufgabe}:\\ Wie kann der früheste Ankunftszeitpunkt ermittelt werden? Wie kann außerdem zusätzlich für diesen frühesten Ankunftszeitpunkt der späteste Abfahrtszeitpunkt berechnet werden?
+\end{frame}
+\end{document}
