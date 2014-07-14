@@ -1,0 +1,76 @@
+\input{includes/head}
+\title[Algorithmen I SS 14]{Tutorium 10}
+
+\usepackage{alltt}
+
+\TitleImage[width=\titleimagewd]{images/title02}
+\definecolor{OliveGreen}{RGB}{85,107,47}
+
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}{Union-Find Datenstruktur}
+	Union-Find ist eine Partition einer Menge so, dass folgende Operationen effizient durchführbar sind:
+	\begin{description}
+		\item[union(x,y)] Vereinigt die Menge mit x mit der Menge mit y 
+		\item[find(x)] Gibt den Repräsentanten der Menge mit x zurück
+	\end{description}
+
+	\textbf{Herausfinden ob x in der selben Menge wie y:} find(x) == find(y)
+
+	\ \\
+	Repräsentation der Mengen als Bäume: Repräsentanten sind Wurzel
+\end{frame}
+
+\begin{frame}{Beispiel Union-Find}
+	Zu Beginn: Die Partition besteht aus n ein-elementigen Mengen
+	\includegraphics[width=\textwidth]{images/uf01}
+	
+\end{frame}
+
+\begin{frame}{Beispiel Union-Find}
+	union(4,6) \\
+	\color{black}find(4) == find(6): \color{OliveGreen}{true} \\
+	\color{black}find(1) == find(3): \color{red}{false} \\
+	\color{black}find(5) == find(2): \color{red}{false} \\
+	\includegraphics[width=\textwidth]{images/uf02}
+	
+\end{frame}
+
+\begin{frame}{Beispiel Union-Find}
+	union(1,3) \\
+	\color{black}find(4) == find(6): \color{OliveGreen}{true} \\
+	\color{black}find(1) == find(3): \color{OliveGreen}{true} \\
+	\color{black}find(5) == find(2): \color{red}{false} \\
+	
+	\includegraphics[width=\textwidth]{images/uf03}
+	
+\end{frame}
+
+\begin{frame}{Optimierungen}
+	\begin{description}
+	\item[find()] Alle traversierte Knoten direkt an die Wurzel gehängt: \\
+		$\rightarrow$ Reduziert Baumhöhe. 
+
+	\item[union()] Der kleine Baum wird an den Größeren gehängt
+	\end{description}	
+
+\end{frame}
+
+\begin{frame}{Laufzeit}
+	\begin{itemize}
+		\item Amortisierte Laufzeit pro Operation: $\mathcal{O}(\alpha(n))$
+		\begin{itemize}
+			\item $\alpha(n)$ ist die Inverse Ackermannfunktion
+			\item sehr langsam wachsend:
+		\end{itemize}
+		\centerline{$\alpha( 2 ^ {2 ^{10 ^{19792}}}) < 5$}
+	\end{itemize}
+\end{frame}
+
+
+\end{document}
