@@ -1,0 +1,127 @@
+\input{includes/head}
+\title[Algorithmen I SS 14]{Tutorium 12}
+
+\usepackage{alltt}
+
+\TitleImage[width=\titleimagewd]{images/alch}
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}{Greedy Algorithmen}
+	\begin{itemize}
+		\item Global optimale Lösungen bestehen oft aus lokal optimalen Lösungen
+		\item Wähle für die \emph{aktuelle Situation} die optimale Entscheidung.
+		\item Keine Reversion von vergangenen Entscheidungen
+		\item $\Rightarrow$ Einfach und schnell
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Beispiele}
+	\large{Greedy Algorithmen die optimale Ergebnisse liefern:}
+	\begin{itemize}
+		\item Dijkstra für kürzeste Wege
+		\item Beide MST Algorithmen
+		\begin{itemize}
+			\item Kruskal
+			\item Jarnik-Prim
+		\end{itemize}
+		\item Selection Sort
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\Huge
+		Dynamische Programmierung
+	\end{center}
+\end{frame}
+
+\begin{frame}{Dynamische Programmierung}
+	\begin{block}{Definition}
+		Dynamische Programmierung ist ein algorithmisches Muster, das vor allem zur Lösung von Optimierungproblemen eingesetzt wird.
+	\end{block}
+	\textbf{Idee:}
+	\begin{itemize}
+		\item Problem in Teilprobleme zerlegen
+		\item Lösungen der Teilprobleme speichern
+		\item Endlösung aus Lösungen der Teilproblemen zusammensetzten
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Dynamische Programmierung: Zwischenspeichern der Ergebnisse}
+	\begin{itemize}
+	\item in einem ein- oder mehrdimensionalen Array 
+	\item Basisfälle vorinitialisieren 
+	\item Rest der Tabelle wird mit Werten für 'nicht berechnet' zB. -1 initialisiert
+	\item für jeden Funktionsaufruf Table-Lookup:
+		\begin{itemize}
+			\item steht ein Wert in der Tabelle: zurückgeben
+			\item sonst: Wert berechnen, in der Tabelle speichern und zurückgeben
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Top-down}
+	\begin{itemize}
+		\item 'Vom Problem zur Lösung'
+		\item rekursiver Funktionsaufruf
+		\item overhead durch viele Funktionsaufrufe
+		\item es kann bei extrem großen Problemen zu stackoverflow kommen
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Besser: Bottom-Up}
+	\begin{itemize}
+		\item die Tabelle wird sukzessiv mit Lösungen gefüllt
+		\item das Endergebniss wird danach einfach aus der Tabelle abgelesen
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Levenshtein-Distance}
+	Die sog. \emph{Levenshtein Distanz} gibt eine Editierdistanz, also eine Art Abstand, zwischen zwei Wörtern an.
+	Sie ist definiert als die minimale Anzahl an Einfüge-, Lösch- und Ersetzungsoperationen, um ein Wort in das andere umzuwandeln.
+
+	Lösung mit dynamischer Programmierung!
+
+	$$
+	lev_{a,b}(i, j) = min \begin{cases}
+		lev_{a,b}(i - 1, j) + 1\ \text{\emph{(a einfügen/b löschen)}}\\
+		lev_{a,b}(i, j - 1) + 1\ \text{\emph{(a löschen/b einfügen)}}\\
+		lev_{a,b}(i - 1, j - 1) + 1_{(a_i \neq b_j)}\ \text{\emph{(ersetzen)}}\\
+	\end{cases}
+	$$
+\end{frame}
+
+\begin{frame}{Palindrome}
+	Palindrome sind Wörter, die rückwärts gleich wie vorwärts sind (z.B. "`anna"', "`kajak"', "`reittier"').
+
+	\textbf{Aufgabe 1}: Entwickle einen Algorithmus, der für eine Zeichenkette der Länge $n$ in $\mathcal{O}(n^2)$ Zeit die Länge der längsten palindromischen Teilsequenz.
+
+	Beispiel: "`FA\textbf{K}UL\textbf{T}Ä\textbf{TSF}E\textbf{ST} INFORMA\textbf{T}I\textbf{K} 2014"'
+
+	\textbf{Aufgabe 2}: Erweitere den Algorithmus, sodass er zusätzlich diese Sequenz ausgibt.
+\end{frame}
+
+\begin{frame}{Miners}
+	Zwei Kohleminen müssen mit Essen versorgt werden.
+	Es gibt drei verschiedene Arten von Essen: Fleisch, Fisch und Brot.
+	Die Arbeiter mögen Abwechslung und sind produktiver, wenn sie verschiedene Arten von Essen bekommen.
+	Für die nächste Produktion entscheidend sind immer die letzten drei Sendungen.
+
+	\begin{itemize}
+		\item Wenn alle Sendungen gleich sind $\Rightarrow$ 1 Kohleeinheit
+		\item Wenn es zwei verschiedene Sendungen gab $\Rightarrow$ 2 Kohleeinheiten
+		\item Wenn alle verschieden waren $\Rightarrow$ 3 Kohleeinheiten
+	\end{itemize}
+
+	Für eine gegebene Reihenfolge an Essenssendungen kann jeweils entschieden werden, welche Mine sie erhält.
+
+	\textbf{Aufgabe}: Berechne die maximale Anzahl an produzierten Kohleeinheiten.
+\end{frame}
+
+\end{document}

@@ -1,0 +1,66 @@
+\input{includes/head}
+\title[Algorithmen I SS 14]{Tutorium 4}
+
+\usepackage{alltt}
+
+\TitleImage[height=\titleimageht]{images/sortinghat}
+
+\definecolor{english}{rgb}{0.0, 0.5, 0.0}
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}{Eigenschaften von Sortieralgorithmen}
+	\begin{block}{in-place}
+		Benötigt nur konstant viel zusätzlichen Speicherplatz.
+	\end{block}
+	\begin{block}{stabil}
+		Gleiche Elemente werden nicht vertauscht.
+
+		$\langle 3, {\color{red}{2}}, 1, {\color{english}{2}}\rangle$ (unsortiert)\\
+		$\langle 1, {\color{english}{2}}, {\color{red}{2}}, 3\rangle$ (nicht-stabil sortiert)\\
+		$\langle 1, {\color{red}{2}}, {\color{english}{2}}, 3\rangle$ (stabil sortiert)
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Quicksort}
+	Rekursiver Sortieralgorithmus
+	\begin{itemize}
+		\item Funktionsweise:
+		\begin{itemize}
+			\item Divide-and-Conquer:
+			\item Aufspaltung mit Pivot Element
+			\item Rekusiver Aufruf auf die Überreste der Aufspaltung
+		\end{itemize}
+		\item Laufzeiten:
+		\begin{itemize}
+			\item Best Case: $\mathcal{O}(n \log{n})$
+			\item Average Case: $\mathcal{O}(n \log{n})$
+			\item Worst Case: $\mathcal{O}(n^2)$
+		\end{itemize}
+		\item {\color{orange}  "`inplace"'} 
+		\item {\color{red} nicht stable}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Beispiel}
+	Sortiere $\langle 58, 38, 97, 68, 6, 21, 37, 54, 24, 16, 65\rangle$
+
+	\begin{enumerate}
+		\item Quicksort (Pivot: erstes Element)
+	\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Ineffective Sorts}
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ineffective_sorts}
+	\end{center}
+\end{frame}
+
+\end{document}
